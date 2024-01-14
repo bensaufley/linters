@@ -1,0 +1,38 @@
+{
+  "name": "@bensaufley/eslint-config",
+  "version": "1.0.0",
+  "description": "ESLint config with Prettier, TypeScript, and Preact in mind",
+  "main": "index.cjs",
+  "files": [
+    "index.cjs",
+    "preact.cjs"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bensaufley/eslint-config.git"
+  },
+  "author": "Ben Saufley <contact@bensaufley.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bensaufley/eslint-config/issues"
+  },
+  "homepage": "https://github.com/bensaufley/eslint-config#readme",
+  "peerDependencies": {
+    "eslint": ">= 8"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3"
+  }
+}
