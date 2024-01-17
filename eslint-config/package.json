@@ -11,10 +11,6 @@
     "@types/eslint": "^8.56.2",
     "@types/node": "^20.11.0"
   },
-  "exports": [
-    "./index.cjs",
-    "./preact.cjs"
-  ],
   "homepage": "https://github.com/bensaufley/linters/tree/main/eslint-config#readme",
   "keywords": [
     "eslint",
