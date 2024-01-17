@@ -55,5 +55,6 @@ module.exports = {
 }
 ```
 
+[eslint]: https://eslint.org/
 [preact]: https://preactjs.com/
 [peer dependencies]: https://docs.npmjs.com/cli/v7/configuring-npm/package-json#peerdependencies

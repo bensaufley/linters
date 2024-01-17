@@ -5,3 +5,5 @@ A collection of linting configs that I just find myself setting up over and over
 ## Modules
 
 - [`@bensaufley/eslint-config`](./eslint-config/README.md)
+
+[preact]: https://preactjs.com/
