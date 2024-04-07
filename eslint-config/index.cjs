@@ -2,7 +2,7 @@
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
-  extends: ['plugin:prettier/recommended', 'plugin:@typescript-eslint/recommended', 'eslint-config-airbnb-base'],
+  extends: ['plugin:@typescript-eslint/recommended', 'eslint-config-airbnb-base', 'plugin:prettier/recommended'],
   env: {
     node: true,
   },
@@ -15,7 +15,6 @@ module.exports = {
      * Things I just want to do differently from the recommended rules
      */
     curly: ['error', 'multi-line', 'consistent'],
-    'max-classes-per-file': 'off',
     'no-continue': 'off',
     'no-plusplus': 'off',
     'prefer-const': ['error', { destructuring: 'all' }],
@@ -87,6 +86,7 @@ module.exports = {
          */
         'no-unused-vars': 'off',
         'no-useless-constructor': 'off',
+        'no-shadow': 'off',
 
         '@typescript-eslint/no-useless-constructor': 'error',
 

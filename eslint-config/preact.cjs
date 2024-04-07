@@ -2,12 +2,13 @@
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
-  extends: ['./index.cjs', 'eslint-config-airbnb/rules/react', 'eslint-config-airbnb/rules/react-a11y'].map((f) =>
-    require.resolve(f),
-  ),
+  extends: ['./index.cjs', 'eslint-config-airbnb/rules/react', 'eslint-config-airbnb/rules/react-a11y']
+    .map((f) => require.resolve(f))
+    .concat(['plugin:react/jsx-runtime', 'plugin:prettier/recommended']),
   env: {
     browser: true,
   },
+  plugins: ['jsx-a11y', 'react', 'react-hooks'],
   rules: {
     /**
      * Things I just want to do differently from the recommended rules
@@ -30,6 +31,8 @@ module.exports = {
       files: ['*.tsx'],
       rules: {
         'react/prop-types': 'off',
+
+        'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx', '.js', '.jsx'] }],
 
         // '<T extends any>' is required in TSX files and this is not configurable
         '@typescript-eslint/no-unnecessary-type-constraint': 'off',
