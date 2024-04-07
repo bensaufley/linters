@@ -85,6 +85,7 @@ module.exports = {
          * JS rules duplicated by @typescript-eslint
          */
         'no-unused-vars': 'off',
+        'no-use-before-defined': 'off',
         'no-useless-constructor': 'off',
         'no-shadow': 'off',
 
