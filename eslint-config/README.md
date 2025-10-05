@@ -24,7 +24,7 @@ npm install --save-dev \
   eslint-plugin-prefer-arrow-functions \
   eslint-plugin-prettier \
   eslint-plugin-simple-import-sort \
-  prettier 
+  prettier
 ```
 
 If you're using Preact, you'll also need to install the relevant peer dependencies:
@@ -37,22 +37,59 @@ npm install --save-dev \
   eslint-plugin-react-hooks
 ```
 
+If you're using ESLint 9, you'll need to override `eslint` version in your `package.json` because some of the peer dependencies still depend on ESLint 8:
+
+```json
+"overrides": {
+  "eslint": ">=9"
+}
+```
+
+And you'll also need to install the relevant peer dependencies:
+
+```sh
+npm install --save-dev \
+  @eslint/eslintrc
+```
+
 ## Usage
 
+### ESLint 8 (Legacy)
+
 In `.eslintrc`:
-  
+
 ```js
 module.exports = {
-  extends: ['@bensaufley']
-}
+  extends: ['@bensaufley'],
+};
 ```
 
 For a Preact environment:
 
 ```js
 module.exports = {
-  extends: [require.resolve('@bensaufley/eslint-config/preact.cjs')]
-}
+  extends: [require.resolve('@bensaufley/eslint-config/preact.js')],
+};
+```
+
+### ESLint 9 ("Flat" Config)
+
+**Note**:
+
+In `eslint.config.js`:
+
+```js
+import bslint from '@bensaufley/eslint-config';
+
+export default [...bslint];
+```
+
+For a Preact environment:
+
+```js
+import bslintPreact from '@bensaufley/eslint-config/preact.js';
+
+export default [...bslintPreact];
 ```
 
 [eslint]: https://eslint.org/

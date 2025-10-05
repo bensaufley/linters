@@ -1,6 +1,6 @@
 // @ts-check
 
-/** @type {import('eslint').Linter.Config} */
+/** @type {import('eslint').Linter.LegacyConfig} */
 module.exports = {
   extends: ['plugin:@typescript-eslint/recommended', 'eslint-config-airbnb-base', 'plugin:prettier/recommended'],
   env: {
@@ -79,7 +79,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.ts', '*.tsx'],
+      files: ['*.ts', '*.tsx', '**/*.ts', '**/*.tsx'],
       rules: {
         /**
          * JS rules duplicated by @typescript-eslint

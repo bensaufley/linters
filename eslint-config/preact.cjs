@@ -1,6 +1,6 @@
 // @ts-check
 
-/** @type {import('eslint').Linter.Config} */
+/** @type {import('eslint').Linter.LegacyConfig} */
 module.exports = {
   extends: ['./index.cjs', 'eslint-config-airbnb/rules/react', 'eslint-config-airbnb/rules/react-a11y']
     .map((f) => require.resolve(f))

@@ -1,0 +1,7 @@
+{
+  "name": "@bensaufley/eslint-config-tests",
+  "devDependencies": {
+    "@bensaufley/eslint-config": "file:../",
+    "vitest": "^3.2.4"
+  }
+}

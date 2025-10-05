@@ -1,5 +1,5 @@
 import type { Linter } from 'eslint';
 
-const preact: Linter.Config;
+declare const preact: Linter.LegacyConfig;
 
 export default preact;

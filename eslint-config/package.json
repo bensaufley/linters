@@ -8,8 +8,12 @@
   },
   "description": "ESLint config with Prettier, TypeScript, and Preact in mind",
   "devDependencies": {
-    "@types/eslint": "^8.56.2",
-    "@types/node": "^20.11.0"
+    "@types/eslint": "*",
+    "@types/node": "^20.19.19",
+    "eslint": "^9",
+    "eslint-plugin-prefer-arrow-functions": "^3.9.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.3"
   },
   "homepage": "https://github.com/bensaufley/linters/tree/main/eslint-config#readme",
   "keywords": [
@@ -18,12 +22,27 @@
     "eslint-plugin"
   ],
   "license": "MIT",
-  "main": "index.cjs",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    },
+    "./index.js": {
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    },
+    "./preact.js": {
+      "import": "./preact.mjs",
+      "require": "./preact.cjs"
+    }
+  },
   "name": "@bensaufley/eslint-config",
   "peerDependencies": {
+    "@eslint/eslintrc": ">= 3.3.1",
+    "@types/eslint": "^9.6.1",
     "@typescript-eslint/eslint-plugin": ">= 6.18.1",
     "@typescript-eslint/parser": ">= 6.18.1",
-    "eslint": "^8",
+    "eslint": "^8 || ^9",
     "eslint-config-airbnb": ">= 19.0.4",
     "eslint-config-airbnb-base": ">= 15.0.0",
     "eslint-config-prettier": ">= 9.1.0",
@@ -35,15 +54,42 @@
     "eslint-plugin-react": ">= 7.33.2",
     "eslint-plugin-react-hooks": ">= 4.6.0",
     "eslint-plugin-simple-import-sort": ">= 10.0.0",
+    "globals": ">= 13.24.0",
     "prettier": ">= 3.2.2"
+  },
+  "peerDependenciesMeta": {
+    "@types/eslint": {
+      "optional": true
+    },
+    "@eslint/eslintrc": {
+      "optional": true
+    },
+    "eslint-config-airbnb": {
+      "optional": true
+    },
+    "eslint-plugin-jsx-a11y": {
+      "optional": true
+    },
+    "eslint-plugin-react": {
+      "optional": true
+    },
+    "eslint-plugin-react-hooks": {
+      "optional": true
+    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bensaufley/linters.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typecheck": "tsc --noEmit",
+    "lint": "bslint",
+    "format": "bslint --format",
+    "check": "npm-run-all --parallel --continue-on-error --aggregate-output typecheck lint"
   },
-  "type": "commonjs",
+  "overrides": {
+    "eslint": "^9"
+  },
   "version": "1.1.3"
 }
