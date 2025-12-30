@@ -1,8 +1,11 @@
 // @ts-check
+/** @import { Plugin } from '@eslint/core' */
 import { FlatCompat } from '@eslint/eslintrc';
 import { defineConfig } from 'eslint/config';
 import preferArrowFunctions from 'eslint-plugin-prefer-arrow-functions';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import prettierRecommended from 'eslint-plugin-prettier/recommended';
+import tseslint from 'typescript-eslint';
 import globals from 'globals';
 
 const compat = new FlatCompat({
@@ -11,11 +14,9 @@ const compat = new FlatCompat({
 });
 
 const config = defineConfig(
-  ...compat.extends(
-    'plugin:@typescript-eslint/recommended',
-    'eslint-config-airbnb-base',
-    'plugin:prettier/recommended',
-  ),
+  tseslint.configs.recommended,
+  ...compat.extends('eslint-config-airbnb-base'),
+  prettierRecommended,
   {
     languageOptions: {
       globals: {
@@ -26,7 +27,7 @@ const config = defineConfig(
       },
     },
     plugins: {
-      'prefer-arrow-functions': preferArrowFunctions,
+      'prefer-arrow-functions': /** @type {Plugin} */ (preferArrowFunctions),
       'simple-import-sort': simpleImportSort,
     },
     rules: {
@@ -82,7 +83,7 @@ const config = defineConfig(
       'trailing-comma': 'off',
       'import/extensions': [
         'error',
-        'always',
+        'ignorePackages',
         {
           ts: 'never',
           tsx: 'never',

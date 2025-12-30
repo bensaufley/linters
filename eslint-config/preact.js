@@ -7,7 +7,7 @@ import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 
-import main from './index.mjs';
+import main from './index.js';
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
@@ -17,12 +17,11 @@ const compat = new FlatCompat({
 const config = defineConfig(
   ...main,
   ...compat.extends('airbnb/rules/react', 'airbnb/rules/react-a11y'),
-  // @ts-ignore
-  pluginReact.configs['jsx-runtime'],
+  pluginReact.configs.flat['jsx-runtime'],
   eslintConfigPrettier,
   {
     plugins: {
-      'react-hooks': pluginReactHooks,
+      'react-hooks': /** @type {Omit<typeof pluginReactHooks, 'configs'>} */ (pluginReactHooks),
       'jsx-a11y': pluginJsxA11y,
       react: pluginReact,
     },
