@@ -32,6 +32,10 @@
       "import": "./index.js",
       "types": "./index.d.ts"
     },
+    "./preact": {
+      "import": "./preact.js",
+      "types": "./preact.d.ts"
+    },
     "./preact.js": {
       "import": "./preact.js",
       "types": "./preact.d.ts"
@@ -59,9 +63,6 @@
   },
   "peerDependenciesMeta": {
     "@types/eslint": {
-      "optional": true
-    },
-    "@eslint/eslintrc": {
       "optional": true
     },
     "eslint-config-airbnb": {

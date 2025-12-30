@@ -16,8 +16,8 @@ const compat = new FlatCompat({
 
 const config = defineConfig(
   ...main,
-  ...compat.extends('airbnb/rules/react', 'airbnb/rules/react-a11y'),
   pluginReact.configs.flat['jsx-runtime'],
+  ...compat.extends('airbnb/rules/react', 'airbnb/rules/react-a11y'),
   eslintConfigPrettier,
   {
     plugins: {

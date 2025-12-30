@@ -15,8 +15,8 @@ npm install --save-dev @bensaufley/eslint-config
 ```sh
 npm install --save-dev \
   eslint \
-  @typescript-eslint/eslint-plugin \
-  @typescript-eslint/parser \
+  @eslint/eslintrc \
+  typescript-eslint \
   eslint-config-airbnb-base \
   eslint-config-prettier \
   eslint-import-resolver-typescript \
@@ -24,6 +24,7 @@ npm install --save-dev \
   eslint-plugin-prefer-arrow-functions \
   eslint-plugin-prettier \
   eslint-plugin-simple-import-sort \
+  globals \
   prettier
 ```
 
@@ -37,7 +38,7 @@ npm install --save-dev \
   eslint-plugin-react-hooks
 ```
 
-If you're using ESLint 9, you'll need to override `eslint` version in your `package.json` because some of the peer dependencies still depend on ESLint 8:
+Because the Airbnb package is *still* stuck in ESLint 8, you'll need to override `eslint` version in your `package.json`:
 
 ```json
 "overrides": {
@@ -45,32 +46,9 @@ If you're using ESLint 9, you'll need to override `eslint` version in your `pack
 }
 ```
 
-And you'll also need to install the relevant peer dependencies:
-
-```sh
-npm install --save-dev \
-  @eslint/eslintrc
-```
+This is safe because we use `@eslint/eslintrc` to make it work with ESLint 9.
 
 ## Usage
-
-### ESLint 8 (Legacy)
-
-In `.eslintrc`:
-
-```js
-module.exports = {
-  extends: ['@bensaufley'],
-};
-```
-
-For a Preact environment:
-
-```js
-module.exports = {
-  extends: [require.resolve('@bensaufley/eslint-config/preact.js')],
-};
-```
 
 ### ESLint 9 ("Flat" Config)
 
@@ -87,7 +65,7 @@ export default [...bslint];
 For a Preact environment:
 
 ```js
-import bslintPreact from '@bensaufley/eslint-config/preact.js';
+import bslintPreact from '@bensaufley/eslint-config/preact';
 
 export default [...bslintPreact];
 ```
